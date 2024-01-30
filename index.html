@@ -1,0 +1,26 @@
+<div class="vitser">
+    <h1>Chuck Norris</h1>
+    <p id="resultat"></p>
+    <button id="knapp">Ny vits</button>
+</div>
+
+<script>
+    let resultatEl = document.querySelector("#resultat")
+
+
+
+
+    const getJoke = async () => //funksjon, men med pilnotasjon
+    {
+        const url= "https://api.chucknorris.io/jokes/random/"
+        const data = await fetch (url)
+        const json = await data.json()
+        let joke = json.value
+        console.log(joke)
+        resultatEl.innerHTML=joke
+    }
+
+    let knappEl = document.querySelector("#knapp")
+    knappEl.addEventListener("click",getJoke)
+
+</script>
